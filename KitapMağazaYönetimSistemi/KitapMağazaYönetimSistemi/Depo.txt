@@ -1,24 +1,24 @@
 apaci necmi
+1
 12
-1
 dobarlan mustafa
-5
 1
+5
 anonim araba
-54
 4
+54
 anon
-12.5
 5
-asd
-45
-4
+12
 anonümsd
-4
 5
+4
 hgv
-54
 41
+54
 system
-45
 87
+45
+mustafa ceylan
+0.001
+1

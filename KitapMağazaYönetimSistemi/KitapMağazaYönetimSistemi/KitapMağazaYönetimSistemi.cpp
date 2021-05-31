@@ -9,7 +9,7 @@ using namespace std;
 
 void menu() {
 	manager yonetici;
-
+	char x;
 
 	int secim;
 	string isim;
@@ -21,7 +21,7 @@ void menu() {
 	system("cls");
 
 
-	cout << "Lutfen secim yapiniz\n\n" << "1)Kitap Kaydetme\t\t" << "2)Listeleme\n\n" << "3)Kitap Bulma\t\t\t" << "4)Kitap Guncelleme" << endl;
+	cout << "Lutfen secim yapiniz\n\n" << "1)Kitap Kaydetme\t\t" << "2)Listeleme\n\n" << "3)Kitap Bulma\t\t\t" << "4)Kitap Silme" << endl<<endl<<"5)cikis";
 	cin >> secim;
 
 	switch (secim) {
@@ -51,7 +51,7 @@ void menu() {
 	  }
 	case 2:
 	  {
-		char x;
+		
 		system("cls");
 		yonetici.hepsiniGetir();
 		cout << "cikmak icin bir harf giriniz" << endl;
@@ -69,13 +69,32 @@ void menu() {
 		getline(cin >> ws, isim);
 
 		yonetici.kitapBul(isim);
+		cout << "cikmak icin bir harf giriniz" << endl;
+		cin >> x;
+		menu();
 
 
 	  }
+	case 4: 
+	   {
+		system("cls");
+		cout << "kitap ismiyle kitap silmeye hoşgeldiniz" << endl << "lutfen istediginiz kitabin ismini girin" << endl;
+		getline(cin >> ws, isim);
 
+		yonetici.kitapSil(isim);
+		menu();
+
+	   }
+
+	case 5: {
+		break;
+	    }
+	default: {
+		cout << "yanlis giris yaptiniz sistem yenilenecek" << endl;
+		menu();
+	  }
 	}
-
-
+	
 	
 	
 	

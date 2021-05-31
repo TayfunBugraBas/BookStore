@@ -8,7 +8,7 @@
 using namespace std;
 
 
-fstream dosya("Depo.txt", ios::app|ios::in|ios::out);
+
 
 void nesneDoldur(vector<Kitap>& kitaplar)
 {
@@ -61,6 +61,7 @@ void nesneDoldur(vector<Kitap>& kitaplar)
 }
 
 void Kaydet(vector<Kitap>& kitap) {
+	fstream dosya("Depo.txt", ios::app | ios::in | ios::out);
 	if (!dosya.is_open()) {
 
 		cout << "opsss... birseyler eksik!!!" << endl;
@@ -75,7 +76,6 @@ void Kaydet(vector<Kitap>& kitap) {
 	}
 
 }
-
 
 void manager::kitapEkle(Kitap kitap)
 {
@@ -98,6 +98,7 @@ void manager::kitapBul(string kitap)
 			cout << "kitabiniz bulundu" << endl << endl;
 			cout << kitap2.getIsim() << kitap2.getFiyat() << kitap2.getMiktar()<< endl;
 		}
+		
 	}
 
 
@@ -106,6 +107,24 @@ void manager::kitapBul(string kitap)
 
 void manager::kitapSil(string kitap)
 {
+	long i = 0;
+	vector<Kitap> deleteHelper;
+
+	nesneDoldur(deleteHelper);
+
+	for (i = 0; i < deleteHelper.size(); i++) {
+
+		if (kitap == deleteHelper[i].getIsim()) {
+
+			deleteHelper.erase(deleteHelper.begin() + (i));
+
+			remove("Depo.txt");
+
+			Kaydet(deleteHelper);
+
+		}
+	}
+
 }
 
 void manager::hepsiniGetir()
